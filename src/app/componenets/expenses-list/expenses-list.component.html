@@ -13,8 +13,8 @@
       <td header="Date">{{ item.date }}</td>
       <td header="Description">{{ item.description }}</td>
       <td header="Action">
-        <i class="pi pi-pen-to-square" (click)="openEditDialog(item)" style="cursor: pointer; margin-right: 1rem;"></i>
-        <i class="pi pi-trash" (click)="onDeleteItem(item.id)"></i>
+        <p class="edit" (click)="openEditDialog(item)" style="cursor: pointer; margin-right: 1rem;">Edit</p>
+        <p class="delete" (click)="onDeleteItem(item.id)">Delete</p>
       </td>
     </tr>
   </ng-template>

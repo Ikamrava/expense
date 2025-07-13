@@ -44,7 +44,7 @@ color: white;
 
 
 ::ng-deep .p-datatable .p-datatable-tbody > tr {
-  margin-bottom: 10px;
+  
   border-bottom: 1px solid #e0e0e0;
 }
 
@@ -52,6 +52,12 @@ color: white;
   padding: 1rem 1rem;
 }
 
-.inputGroup{
-    margin: 20px;
+.edit{
+  color: green;
 }
+
+.delete{
+  color: red;
+}
+
+
