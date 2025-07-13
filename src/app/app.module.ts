@@ -7,12 +7,12 @@ import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { TableModule } from 'primeng/table';
 import { environment } from '../../environment.prod';
+
 import { HomeComponent } from './page/home/home.component';
 import { ExpensesListComponent } from './componenets/expenses-list/expenses-list.component';
 import { DialogModule } from 'primeng/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CalendarModule } from 'primeng/calendar';
-import { CommonModule } from '@angular/common';
 import { FilterComponent } from './page/filter/filter.component';
 import { HeaderComponent } from './componenets/header/header.component'; 
 import { MenubarModule } from 'primeng/menubar';
@@ -49,7 +49,6 @@ import { ToastModule } from 'primeng/toast';
     DialogModule,
     BrowserAnimationsModule,
     CalendarModule,
-    CommonModule,
     MenubarModule,
     CardModule,
     PasswordModule,
