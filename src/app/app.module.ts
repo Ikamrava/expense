@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { TableModule } from 'primeng/table';
-import { environment } from '../environment.prod';
+import { environment } from '../../environment.prod';
 import { HomeComponent } from './page/home/home.component';
 import { ExpensesListComponent } from './componenets/expenses-list/expenses-list.component';
 import { DialogModule } from 'primeng/dialog';
