@@ -1,5 +1,5 @@
 .inputGroup{
-    margin: 20px;
+   margin-bottom: 10px;
 }
 
 input{
@@ -31,12 +31,10 @@ input{
 
 }
 
-.expense{
-    width: 100%;
+
+
+
+.dataContainer{
+    display: flex;
+    flex-direction: row;
 }
-
-.form{
-    width: 100%;
-}
-
-

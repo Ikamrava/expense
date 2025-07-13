@@ -1,6 +1,6 @@
 <!-- src/app/app.component.html -->
-<div >
-    <form (ngSubmit)="onAddItem(itemForm)" #itemForm="ngForm" class="form">
+<div>
+  <form (ngSubmit)="onAddItem(itemForm)" #itemForm="ngForm" class="form">
     <p-inputGroup class="inputGroup">
       <p-inputGroupAddon class="addOn">
         <i class="pi pi-pound"></i>
@@ -12,7 +12,7 @@
       <p-inputGroupAddon class="addOn">
         <i class="pi pi-calendar-clock"></i>
       </p-inputGroupAddon>
-      <p-calendar pInputText name="date" ngModel placeholder="Date" />
+      <p-calendar name="date" ngModel placeholder="Date"></p-calendar>
     </p-inputGroup>
 
     <p-inputGroup class="inputGroup">
@@ -22,10 +22,10 @@
       <input pInputText name="description" ngModel placeholder="Description" />
     </p-inputGroup>
 
-    <button class="submitBtn" type="submit" [disabled]="itemForm.invalid" >Add Item</button>
-    </form>
-   <div class="expense">
-     <app-expenses-list [items] = "items"/>
-   </div>
-  
+    <button class="submitBtn" type="submit" [disabled]="itemForm.invalid">Add Item</button>
+  </form>
+
+  <div class="expense">
+    <app-expenses-list [items]="items"></app-expenses-list>
+  </div>
 </div>
