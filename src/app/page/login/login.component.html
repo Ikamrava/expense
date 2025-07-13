@@ -1,0 +1,50 @@
+<p-toast></p-toast>
+
+<div class="flex justify-content-center align-items-center h-screen">
+  <form (ngSubmit)="onLogin(loginForm)" #loginForm="ngForm">
+    <p-card header="Login" [style]="{ width: '25rem' }">
+      
+      <div class="field">
+        <label for="email">Email</label>
+        <input
+          pInputText
+          id="email"
+          class="w-full"
+          name="email"
+          ngModel
+          required
+          email
+          #emailInput="ngModel"
+        />
+        <small 
+          *ngIf="emailInput.invalid && emailInput.touched" 
+          class="p-error">
+            Enter a valid email.
+        </small>
+      </div>
+
+      <div class="field">
+        <label for="password">Password</label>
+        <p-password
+          id="password"
+          name="password"
+          ngModel
+          required
+          [feedback]="false"
+          styleClass="w-full"
+          inputStyleClass="w-full"
+        ></p-password>
+      </div>
+      
+      <ng-template pTemplate="footer">
+        <p-button 
+          label="Sign In" 
+          icon="pi pi-sign-in" 
+          styleClass="w-full" 
+          type="submit" 
+          [disabled]="!loginForm.valid">
+        </p-button>
+      </ng-template>
+    </p-card>
+  </form>
+</div>

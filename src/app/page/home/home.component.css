@@ -1,0 +1,42 @@
+.inputGroup{
+    margin: 20px;
+}
+
+input{
+    margin: 0;
+    padding: 2px;
+    border-radius: 6px;
+}
+
+
+.addOn{
+
+    background-color: rgb(3, 154, 159);
+
+}
+
+.pi{
+    color: white;
+    
+}
+
+.submitBtn{
+    padding: 6px;
+    width: 100%;
+    background-color: rgb(3, 154, 159);
+    color: white;
+    font-weight: bold;
+    box-shadow: inset;
+    font-size: 1rem;
+
+}
+
+.expense{
+    width: 100%;
+}
+
+.form{
+    width: 100%;
+}
+
+

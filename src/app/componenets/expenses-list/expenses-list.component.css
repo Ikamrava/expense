@@ -1,0 +1,57 @@
+
+td{
+    font-size: 1rem;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+   
+}
+
+tr{
+    font-size: 1rem;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+   
+}
+
+.pi-pen-to-square{
+    background-color: aqua;
+    margin-right: 15px;
+}
+
+.pi-trash{
+background-color: rgb(238, 39, 39);
+color: white;
+}
+
+.table{
+    display:block;
+    width: 100%;
+}
+
+::ng-deep .p-table .pi {
+  margin-right: 0.5rem;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 600px) {
+  .p-table td {
+    display: block;
+    text-align: left;
+  }
+}
+
+
+::ng-deep .p-datatable .p-datatable-tbody > tr {
+  margin-bottom: 10px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+::ng-deep .p-datatable .p-datatable-tbody > tr > td {
+  padding: 1rem 1rem;
+}
+
+.inputGroup{
+    margin: 20px;
+}

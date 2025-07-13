@@ -1,0 +1,12 @@
+<form (ngSubmit)="onFilter(itemForm)" #itemForm="ngForm">
+  <input type="date" [(ngModel)]="fromDate" name="from">
+  <input type="date" [(ngModel)]="toDate" name="to">
+  <button type="submit">Filter</button>
+</form>
+<button type="button" (click)="resetDate()">Reset</button>
+
+<div *ngIf="items.length > 0" class="total-summary">
+    <h3>Total: {{ totalSum | currency:'GBP' }}</h3>
+</div>
+
+<app-expenses-list [items]="items" />

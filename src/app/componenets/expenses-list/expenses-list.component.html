@@ -1,0 +1,56 @@
+<p-table [value]="items" responsiveLayout="stack" breakpoint="960px" class="table">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Amount</th>
+      <th>Date</th>
+      <th>Description</th>
+      <th>Action</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-item>
+    <tr>
+      <td header="Amount">{{ item.amount | currency:"£" }}</td>
+      <td header="Date">{{ item.date }}</td>
+      <td header="Description">{{ item.description }}</td>
+      <td header="Action">
+        <i class="pi pi-pen-to-square" (click)="openEditDialog(item)" style="cursor: pointer; margin-right: 1rem;"></i>
+        <i class="pi pi-trash" (click)="onDeleteItem(item.id)"></i>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
+
+<p-dialog 
+  header="Edit Expense" 
+  [(visible)]="editDialogVisible" 
+  [modal]="true" 
+  [closable]="true" 
+  [style]="{width: '400px'}"
+  *ngIf="selectedItem">
+  
+  <div class="p-fluid">
+      <p-inputGroup class="inputGroup">
+      <p-inputGroupAddon class="addOn">
+        <i class="pi pi-pound"></i>
+      </p-inputGroupAddon>
+      <input pInputText name="amount" [(ngModel)]="selectedItem.amount" placeholder="Amount" />
+    </p-inputGroup>
+
+    <p-inputGroup class="inputGroup">
+      <p-inputGroupAddon class="addOn">
+        <i class="pi pi-calendar-clock"></i>
+      </p-inputGroupAddon>
+      <input pInputText name="date" [(ngModel)]="selectedItem.date" placeholder="Date" />
+    </p-inputGroup>
+
+    <p-inputGroup class="inputGroup">
+      <p-inputGroupAddon class="addOn">
+        <i class="pi pi-clipboard"></i>
+      </p-inputGroupAddon>
+      <input pInputText name="description" [(ngModel)]="selectedItem.description" />
+    </p-inputGroup>
+    <div class="p-field">
+      <button pButton label="Save" class="p-button-success mt-2" (click)="onSaveEdit()"></button>
+    </div>
+  </div>
+</p-dialog>
