@@ -6,8 +6,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { TableModule } from 'primeng/table';
-import { environment } from '../../environment.prod';
-
 import { HomeComponent } from './page/home/home.component';
 import { ExpensesListComponent } from './componenets/expenses-list/expenses-list.component';
 import { DialogModule } from 'primeng/dialog';
@@ -22,12 +20,11 @@ import { PasswordModule } from 'primeng/password';
 import { CheckboxModule } from 'primeng/checkbox';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
-
-// ✅ 1. Import the necessary Auth providers
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getAuth, provideAuth } from '@angular/fire/auth';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { ToastModule } from 'primeng/toast';
+import { environment } from '../environments/environment.development';
 
 @NgModule({
   declarations: [
