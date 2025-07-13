@@ -24,7 +24,7 @@ import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getAuth, provideAuth } from '@angular/fire/auth';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { ToastModule } from 'primeng/toast';
-import { environment } from '../environments/environment.development';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
