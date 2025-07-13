@@ -1,12 +1,10 @@
-
 export const environment = {
-  production: true,
   firebase: {
-    apiKey: process.env['NG_APP_FIREBASE_API_KEY'],
-    authDomain: process.env['NG_APP_FIREBASE_AUTH_DOMAIN'],
-    projectId: process.env['NG_APP_FIREBASE_PROJECT_ID'],
-    storageBucket: process.env['NG_APP_FIREBASE_STORAGE_BUCKET'],
-    messagingSenderId: process.env['NG_APP_MESSAGING_SENDER_ID'],
-    appId: process.env['NG_APP_FIREBASE_APP_ID']
+    apiKey: import.meta.env.NG_APP_FIREBASE_API_KEY,
+    authDomain: "expense-tracker-app-9b4ea.firebaseapp.com",
+    projectId: "expense-tracker-app-9b4ea",
+    storageBucket: "expense-tracker-app-9b4ea.firebasestorage.app",
+    messagingSenderId: "938533858890",
+    appId: "1:938533858890:web:6c36cfb698f5780e5080b3"
   }
 };
