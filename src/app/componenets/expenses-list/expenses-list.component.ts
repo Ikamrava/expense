@@ -30,16 +30,37 @@ export class ExpensesListComponent  {
     }
   }
 
-  openEditDialog(item: Item) {
-    this.editDialogVisible = true;
-    const rawDate = item.date;
-    let formattedDate: string | null = null;
-    if (rawDate) {
-      formattedDate = this.datePipe.transform(rawDate, 'dd/MM/yyyy');
-    }
-    this.selectedItem = { ...item, date: formattedDate}; 
+  // openEditDialog(item: Item) {
+   
+  //   this.editDialogVisible = true;
+  //   const rawDate = item.date;
+  //   let formattedDate: string | null = null;
+  //   if (rawDate) {
+  //     formattedDate = this.datePipe.transform(rawDate, 'dd/MM/yyyy');
+  //   }
+  //   this.selectedItem = { ...item, date: formattedDate}; 
     
+  // }
+
+  openEditDialog(item: Item) {
+  this.editDialogVisible = true;
+
+  const rawDate = item.date;
+  let formattedDate: string | null = null;
+
+  if (rawDate) {
+    // Parse "14/07/2025" as dd/MM/yyyy
+    const parts = rawDate.split('/');
+    if (parts.length === 3) {
+      const [day, month, year] = parts.map(Number);
+      const parsedDate = new Date(year, month - 1, day); // JS months are 0-indexed
+      formattedDate = this.datePipe.transform(parsedDate, 'dd/MM/yyyy');
+    }
   }
+
+  this.selectedItem = { ...item, date: formattedDate };
+}
+
 
   onSaveEdit() {
     if (this.selectedItem) {

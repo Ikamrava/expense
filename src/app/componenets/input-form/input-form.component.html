@@ -1,0 +1,26 @@
+<form (ngSubmit)="onAddItem(itemForm)" #itemForm="ngForm" class="form">
+  <p-inputGroup class="inputGroup">
+    <p-inputGroupAddon class="addOn">
+      <i class="pi pi-pound"></i>
+    </p-inputGroupAddon>
+    <input pInputText name="amount" ngModel placeholder="Amount" required />
+  </p-inputGroup>
+
+  <p-inputGroup class="inputGroup">
+    <p-inputGroupAddon class="addOn">
+      <i class="pi pi-calendar-clock"></i>
+    </p-inputGroupAddon>
+    <p-calendar name="date" ngModel placeholder="Date" required></p-calendar>
+  </p-inputGroup>
+
+  <p-inputGroup class="inputGroup">
+    <p-inputGroupAddon class="addOn">
+      <i class="pi pi-clipboard"></i>
+    </p-inputGroupAddon>
+    <p-autoComplete [(ngModel)]="selectedDesc" [suggestions]="filteredDesc" (completeMethod)="filterDesc($event)"
+      [dropdown]="true" [forceSelection]="false" placeholder="Select or type a description" inputId="description"
+      name="description" [style]="{ width: '50%' }" required></p-autoComplete>
+  </p-inputGroup>
+
+  <button class="submitBtn" type="submit" [disabled]="itemForm.invalid">Add Item</button>
+</form>

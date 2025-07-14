@@ -1,63 +1,86 @@
+/* ===================== */
+/* PrimeNG Table Styling */
+/* ===================== */
 
-td{
-    font-size: 1rem;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-   
+.table {
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 0.9rem; /* reduced font size */
+  margin-top: 1rem;
+  overflow-x: auto; /* enable horizontal scroll if needed */
 }
 
-tr{
-    font-size: 1rem;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-   
+/* Table column title */
+::ng-deep .p-column-title {
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+  display: block;
+  font-size: 0.85rem;
 }
 
-.pi-pen-to-square{
-    background-color: aqua;
-    margin-right: 15px;
-}
-
-.pi-trash{
-background-color: rgb(238, 39, 39);
-color: white;
-}
-
-.table{
-    display:block;
-    width: 100%;
-}
-
-::ng-deep .p-table .pi {
-  margin-right: 0.5rem;
+/* Action buttons */
+.table .edit,
+.table .delete {
+  display: inline-block;
+  padding: 0.35rem 0.3rem;
+  border-radius: 4px;
+  color: white;
   cursor: pointer;
+  font-weight: 500;
+  font-size: 0.85rem;
+  text-align: center;
+  white-space: nowrap;
 }
 
-@media screen and (max-width: 600px) {
-  .p-table td {
+.table .edit {
+  background-color: #007ad9;
+  
+}
+
+.table .delete {
+  background-color: #d9534f;
+}
+
+@media (max-width: 600px) {
+  .table .edit,
+  .table .delete {
     display: block;
-    text-align: left;
+    margin: 0.25rem 0;
+    width: 100%;
   }
 }
 
+/* ===================== */
+/* PrimeNG Dialog Styling */
+/* ===================== */
 
-::ng-deep .p-datatable .p-datatable-tbody > tr {
-  
-  border-bottom: 1px solid #e0e0e0;
+::ng-deep .p-dialog {
+  width: 90% !important;
+  max-width: 400px;
+  max-height: 90vh;
+  overflow-y: auto; /* make dialog scrollable if content is too tall */
 }
 
-::ng-deep .p-datatable .p-datatable-tbody > tr > td {
-  padding: 1rem 1rem;
+.p-dialog .p-fluid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  font-size: 0.9rem; /* smaller font */
 }
 
-.edit{
-  color: green;
+.p-dialog .p-inputgroup {
+  width: 100%;
 }
 
-.delete{
-  color: red;
+.p-dialog .p-button-success {
+  width: 100%;
+  font-size: 0.95rem;
+  padding: 0.6rem;
 }
 
-
+/* Improve spacing on mobile */
+@media (max-width: 600px) {
+  ::ng-deep .p-dialog {
+    margin: 0.5rem;
+  }
+}

@@ -5,15 +5,16 @@ import { NgForm } from '@angular/forms';
 @Component({
   selector: 'app-filter',
   templateUrl: './filter.component.html',
-  styleUrls: ['./filter.component.css']
+  styleUrls: ['./filter.component.css'],
 })
 export class FilterComponent implements OnInit {
   items: Item[] = [];
   totalSum: number = 0;
   private allItems: Item[] = [];
+
+  fromDate: string = '';
+  toDate: string = '';
   
-  fromDate: string = "";
-  toDate: string = "";
 
   constructor(private firestoreService: FirestoreService) {}
 
@@ -30,7 +31,7 @@ export class FilterComponent implements OnInit {
       },
       error: (err) => {
         console.error('Error fetching items:', err);
-      }
+      },
     });
   }
 
@@ -64,29 +65,27 @@ export class FilterComponent implements OnInit {
     const toDate = to ? new Date(to) : null;
     if (toDate) toDate.setHours(23, 59, 59, 999);
 
-    this.items = this.allItems.filter(item => {
+    this.items = this.allItems.filter((item) => {
       // Exclude items that have no date
       if (!item.date) {
         return false;
       }
-      
+
       // Convert the item's 'DD/MM/YYYY' string to a Date object before comparing
       const itemDate = this.parseDMY(item.date);
 
       // Perform the comparison on Date objects
       const afterFrom = fromDate ? itemDate >= fromDate : true;
       const beforeTo = toDate ? itemDate <= toDate : true;
-      
+
       return afterFrom && beforeTo;
     });
     this.calculateSum();
   }
 
-  
-
-  resetDate(){
-    this.fromDate = ""
-    this.toDate = ""
+  resetDate() {
+    this.fromDate = '';
+    this.toDate = '';
     this.loadItems();
   }
 }

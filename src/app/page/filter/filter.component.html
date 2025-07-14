@@ -2,8 +2,9 @@
   <input type="date" [(ngModel)]="fromDate" name="from">
   <input type="date" [(ngModel)]="toDate" name="to">
   <button type="submit">Filter</button>
+  <button type="button" (click)="resetDate()">Reset</button>
 </form>
-<button type="button" (click)="resetDate()">Reset</button>
+
 
 <div *ngIf="items.length > 0" class="total-summary">
     <h3>Total: {{ totalSum | currency:'GBP' }}</h3>
