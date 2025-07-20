@@ -8,19 +8,19 @@
 
   <p-inputGroup class="inputGroup">
     <p-inputGroupAddon class="addOn">
-      <i class="pi pi-calendar-clock"></i>
-    </p-inputGroupAddon>
-    <p-calendar name="date" ngModel placeholder="Date" required></p-calendar>
-  </p-inputGroup>
-
-  <p-inputGroup class="inputGroup">
-    <p-inputGroupAddon class="addOn">
       <i class="pi pi-clipboard"></i>
     </p-inputGroupAddon>
-    <p-autoComplete [(ngModel)]="selectedDesc" [suggestions]="filteredDesc" (completeMethod)="filterDesc($event)"
+    <p-autoComplete name="description" [(ngModel)]="selectedDesc" [suggestions]="filteredDesc" (completeMethod)="filterDesc($event) "
       [dropdown]="true" [forceSelection]="false" placeholder="Select or type a description" inputId="description"
       name="description" [style]="{ width: '50%' }" required></p-autoComplete>
   </p-inputGroup>
+
+    <p-inputGroup class="inputGroup">
+      <p-inputGroupAddon class="addOn">
+        <i class="pi pi-calendar-clock"></i>
+      </p-inputGroupAddon>
+      <p-calendar name="date" [(ngModel)]="selectedDate" placeholder="Date" required dateFormat="dd/mm/yy"></p-calendar>
+    </p-inputGroup>
 
   <button class="submitBtn" type="submit" [disabled]="itemForm.invalid">Add Item</button>
 </form>

@@ -30,17 +30,6 @@ export class ExpensesListComponent  {
     }
   }
 
-  // openEditDialog(item: Item) {
-   
-  //   this.editDialogVisible = true;
-  //   const rawDate = item.date;
-  //   let formattedDate: string | null = null;
-  //   if (rawDate) {
-  //     formattedDate = this.datePipe.transform(rawDate, 'dd/MM/yyyy');
-  //   }
-  //   this.selectedItem = { ...item, date: formattedDate}; 
-    
-  // }
 
   openEditDialog(item: Item) {
   this.editDialogVisible = true;

@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { descriptionList } from '../../../categoty';
 import { DatePipe } from '@angular/common';
 import { NgForm } from '@angular/forms';
@@ -9,12 +9,20 @@ import { FirestoreService, Item } from '../../services/firestore.service';
   templateUrl: './input-form.component.html',
   styleUrl: './input-form.component.css',
 })
-export class InputFormComponent {
+export class InputFormComponent implements OnInit {
   desc = descriptionList;
   filteredDesc: string[] = [];
   selectedDesc: string = ''; // can hold typed or selected value
 
   constructor(private firestoreService: FirestoreService) {}
+
+  ngOnInit() {
+    this.firestoreService.getCategories().subscribe((data) => {
+      this.desc = data.map((c) => c.name);
+    });
+  }
+
+  selectedDate: Date = new Date();
 
   filterDesc(event: any) {
     const query = event.query.toLowerCase();
@@ -25,13 +33,13 @@ export class InputFormComponent {
 
   private datePipe = inject(DatePipe);
   // Method to handle form submission for adding a new item
-  onAddItem(form: NgForm) {
+  async onAddItem(form: NgForm) {
     if (form.invalid) {
       return;
     }
 
     // Get the raw date value from the form
-    const rawDate = form.value.date;
+    const rawDate = this.selectedDate;
 
     // Format the date to 'YYYY/MM/DD' if it exists
     let formattedDate: string | null = null;
@@ -42,14 +50,19 @@ export class InputFormComponent {
     const newItem: Item = {
       amount: form.value.amount,
       date: formattedDate, // Use the formatted date here
+      dateObj: rawDate,
       description: form.value.description,
     };
 
-    this.firestoreService
-      .addItem(newItem)
-      .then(() => {
-        form.reset(); // Reset the form after successful submission
-      })
-      .catch((err) => console.error(err));
+    try {
+      await this.firestoreService.addItem(newItem);
+      await this.firestoreService.addCategoryIfNotExists(
+        form.value.description
+      ); // 🔥 add category if new
+      form.resetForm();
+      this.selectedDate = new Date(); // Reset date to today
+    } catch (err) {
+      console.error(err);
+    }
   }
 }
